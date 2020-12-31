@@ -1,0 +1,33 @@
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100%;
+    background-color: white;
+}
+
+footer ul {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+footer ul li a {
+    text-decoration: none;
+    margin: 0 10px 0 0;
+}
+
+footer ul li:last-child a {
+    margin-right: 0;
+}
+
+footer h1 {
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+    padding-top: 20px;
+}
+

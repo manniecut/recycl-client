@@ -1,0 +1,28 @@
+header {
+    margin-bottom: 40px;
+}
+
+header h1 a {
+    color: black;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+    padding-top: 20px;
+    text-decoration: none;
+}
+
+
+/*
+@media all and (min-width: 800px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    header h1 {
+        margin: 14px 0;
+        padding-top: 0;
+        text-align: left;
+    }
+}*/
