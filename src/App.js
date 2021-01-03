@@ -7,7 +7,6 @@ import Login from './Login/Login';
 import CreateAccount from './Login/CreateAccount/CreateAccount';
 import SelectScreen from './SelectScreen/SelectScreen';
 import SelectedType from './SelectedType/SelectedType';
-import SelectedSubtype from './SelectedSubtype/SelectedSubtype';
 import ContactForm from './ContactForm/ContactForm';
 import Pickup from './Pickup/Pickup';
 import Menu from './Menu/Menu';
@@ -46,6 +45,10 @@ class App extends Component {
     return (
       <>
         <Route
+          exact
+          path="/"
+          component={Login} />
+        <Route
           path="/login"
           component={Login} />
         <Route
@@ -61,7 +64,7 @@ class App extends Component {
           component={ContactForm} />
         <Route
           exact
-          path="/pickup"
+          path="/pickups"
           component={Pickup} />
         <Route
           exact
@@ -76,11 +79,6 @@ class App extends Component {
           exact
           path="/select/:selectedType"
           component={SelectedType} />
-
-        <Route
-          exact
-          path="/select/batteries/lithium"
-          component={SelectedSubtype} />
 
 
       </>

@@ -7,23 +7,20 @@ import './SelectedType.css'
 class SelectedType extends Component {
 
     state = {
-        selectedType: this.props.match.params.selectedType
+        selectedType: this.props.match.params.selectedType,
+        mapsKey: "AIzaSyC5q4AzjnRDhf53nceGVJBJPRbBVZyDS5U"
     }
 
     // props will designate the category of recycling and populate subcategories
 
     render() {
+        const query = (this.state.selectedType + 'recycling')
         return (
             <div className='selectedtype__screen'>
-                <div>
-                    <h3>{this.state.selectedType}</h3>
-                    <ul className='selectedtype__container'>
-                        <li className='selectedtype__item'>This will</li>
-                        <li className='selectedtype__item'>Be populated</li>
-                        <li className='selectedtype__item'>Based on</li>
-                        <li className='selectedtype__item'>Recycle Type</li>
-                    </ul>
-                </div>
+                <h3>{this.state.selectedType}</h3>
+                <p>Click here to schedule a pickup for this item</p>
+                <p>Below are locations near you where you can recycle this item:</p>
+                <iframe src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
             </div>
         )
     }

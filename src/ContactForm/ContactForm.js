@@ -4,12 +4,15 @@ class ContactForm extends Component {
 
     render() {
         return (
-            <form action="" method="POST">
-
+            <form>
             <h1>Contact Us</h1>
 
             <label htmlFor="user-message">We would love to hear from you!</label>
+
+            <br />
+
             <textarea id="user-message" name="message" />
+
             <br />
 
             <button type="submit">Submit</button>
@@ -20,6 +23,3 @@ class ContactForm extends Component {
 
 
 export default ContactForm;
-
-
-//https://formspree.io/xjvazwkj

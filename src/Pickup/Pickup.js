@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PickupItem from './Item/PickupItem';
 //import './RecyclHeader.css';
 
 // this is the header component
@@ -9,7 +10,9 @@ class Pickup extends Component {
         return (
             <>
                 <h1>Pickups</h1>
-                <p>Scheduled Pickups will go here</p>
+                <PickupItem />
+                <PickupItem />
+                <PickupItem />
             </>
         )
     }

@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import './RecyclHeader.css';
+import './Menu.css';
 
-// this is the header component
+// this is the Menu component
 
 class Menu extends Component {
 
     render() {
         return (
-            <>
+            <div className='main__menu'>
                 <h1>Menu</h1>
-                <Link to='/login'>Log Out</Link>
-            </>
+                <ul>
+                    <li>
+                        <Link to="/contact">Edit Location</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact Us</Link>
+                    </li>
+                    <li>
+                        <Link to='/login'>Log Out</Link>
+                    </li>
+                </ul>
+            </div>
         )
     }
 }
