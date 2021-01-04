@@ -140,7 +140,7 @@ class CreateAccount extends Component {
                         name='location'
                         id='location'
                         onChange={e => console.log(e.target.value)}
-                        required /><br />
+                        /><br />
 
                     <label htmlFor='password'>Email (optional, for latest updates):</label><br />
                     <input
