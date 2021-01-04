@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 
 // this component allows the user to create an account to use with GutHub
 
-class CreateAccount extends Component {
+class EditAccount extends Component {
     state = {
         username: '',
         pass: '',
@@ -81,11 +81,6 @@ class CreateAccount extends Component {
 
     /** Form to State Updates */
 
-    handleNameUpdate = name => {
-        this.setState({
-            username: name
-        })
-    }
 
     handlePassUpdate = pass => {
         this.setState({
@@ -110,15 +105,8 @@ class CreateAccount extends Component {
     render() {
         return (
             <>
-                <h2>Create Account</h2> <br />
+                <h2>Edit Account: STATIC</h2> <br />
                 <form className='LoginPage' onSubmit={this.handleSubmit}>
-                    <label htmlFor='username'>Username:</label><br />
-                    <input
-                        type='text'
-                        name='username'
-                        id='username'
-                        onChange={e => this.handleNameUpdate(e.target.value)}
-                        required /><br />
 
                     <label htmlFor='password'>Password:</label><br />
                     <input
@@ -128,7 +116,7 @@ class CreateAccount extends Component {
                         onChange={e => this.handlePassUpdate(e.target.value)}
                         required /><br />
 
-                    <label htmlFor='passcheck'>Password Again:</label><br />
+                    <label htmlFor='passcheck'>Password Check:</label><br />
                     <input
                         type='password'
                         name='passcheck'
@@ -151,13 +139,11 @@ class CreateAccount extends Component {
                         id='email'
                         onChange={e => this.handleEmailUpdate(e.target.value)} /><br />
                     <div >
-                        <p>By signing up you agree that you've been made aware that this is currently in
-                    testing phase and the password isn't super secure so please use a throwaway password.
-                    *This app is a demo for my portfolio of my capabilities, and does not represent
+                        <p>*This app is a demo for my portfolio of my capabilities, and does not represent
                     a currently functional service in the real world, so please be aware that no one will
                     show up to your location for any scheduled pickups.</p>
                         <button className='login__button' type='submit'>
-                            Create
+                            Save
                          </button>
                         <button className='cancel__button' type='button' onClick={this.handleCancel}>
                             Cancel
@@ -170,4 +156,4 @@ class CreateAccount extends Component {
 }
 
 
-export default CreateAccount;
+export default EditAccount;

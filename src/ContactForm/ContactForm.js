@@ -2,21 +2,28 @@ import React, { Component } from 'react';
 
 class ContactForm extends Component {
 
+    handleCancel = () => {
+        this.props.history.goBack();
+    };
+
     render() {
         return (
             <form>
-            <h1>Contact Us</h1>
+                <h1>Contact Us</h1>
 
-            <label htmlFor="user-message">We would love to hear from you!</label>
+                <label htmlFor="user-message">We would love to hear from you!</label>
 
-            <br />
+                <br />
 
-            <textarea id="user-message" name="message" />
+                <textarea id="user-message" name="message" />
 
-            <br />
+                <br />
 
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit">Submit</button>
+                <button className='cancel__button' type='button' onClick={this.handleCancel}>
+                    Cancel
+                         </button>
+            </form>
         )
     }
 }

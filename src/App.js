@@ -7,9 +7,10 @@ import Login from './Login/Login';
 import CreateAccount from './Login/CreateAccount/CreateAccount';
 import SelectScreen from './SelectScreen/SelectScreen';
 import SelectedType from './SelectedType/SelectedType';
-import ContactForm from './ContactForm/ContactForm';
 import Pickup from './Pickup/Pickup';
 import Menu from './Menu/Menu';
+import EditAccount from './Login/EditAccount/EditAccount';
+import ContactForm from './ContactForm/ContactForm';
 
 import './App.css';
 
@@ -60,16 +61,21 @@ class App extends Component {
           component={SelectScreen} />
         <Route
           exact
-          path="/contact"
-          component={ContactForm} />
-        <Route
-          exact
           path="/pickups"
           component={Pickup} />
+
         <Route
           exact
           path="/menu"
           component={Menu} />
+        <Route
+          exact
+          path="/editaccount"
+          component={EditAccount} />
+        <Route
+          exact
+          path="/contact"
+          component={ContactForm} />
 
 
 

@@ -12,7 +12,7 @@ class Menu extends Component {
                 <h1>Menu</h1>
                 <ul>
                     <li>
-                        <Link to="/contact">Edit Location</Link>
+                        <Link to="/editaccount">Edit Account</Link>
                     </li>
                     <li>
                         <Link to="/contact">Contact Us</Link>
