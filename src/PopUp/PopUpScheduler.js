@@ -8,9 +8,9 @@ class PopUpScheduler extends Component {
         return (
             <div className='popup'>
                 <div className='popup_inner'>
-                    <label for="pickupdate">Schedule Pickup:</label><br />
+                    <label htmlFor="pickupdate">Schedule Pickup:</label><br />
                     <input type="date" id="pickupdate" name="pickupdate" /><br />
-                    <label for="pickuptime">Select a time:</label><br />
+                    <label htmlFor="pickuptime">Select a time:</label><br />
                     <input type="time" id="pickuptime" name="pickuptime" /><br />
                     <p>At your location:</p>
                     <p>123 Any Street, Detroit, MI</p>
