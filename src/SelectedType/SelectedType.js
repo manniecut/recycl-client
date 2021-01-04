@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PopUpScheduler from '../PopUp/PopUpScheduler';
 //import GutHubContext from '../GutHubContext';
 import './SelectedType.css'
 
@@ -8,7 +9,14 @@ class SelectedType extends Component {
 
     state = {
         selectedType: this.props.match.params.selectedType,
-        mapsKey: "AIzaSyC5q4AzjnRDhf53nceGVJBJPRbBVZyDS5U"
+        mapsKey: "AIzaSyC5q4AzjnRDhf53nceGVJBJPRbBVZyDS5U",
+        showPopUp: false
+    }
+
+    togglePopup() {
+        this.setState({
+            showPopUp: !this.state.showPopUp
+        });
     }
 
     // props will designate the category of recycling and populate subcategories
@@ -18,9 +26,20 @@ class SelectedType extends Component {
         return (
             <div className='selectedtype__screen'>
                 <h3>{this.state.selectedType}</h3>
-                <p>Click here to schedule a pickup for this item</p>
-                <p>Below are locations near you where you can recycle this item:</p>
-                <iframe src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
+                
+                <div className='selectedtype__locations'>
+                    <p>Recycling centers near you that take {this.state.selectedType}:</p>
+                    <iframe src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
+                </div>
+                <h2>- or -</h2>
+                
+                <button onClick={e => this.togglePopup()}>Schedule a Pickup</button>
+                {this.state.showPopUp ?
+                    <PopUpScheduler
+                        closePopup={e => this.togglePopup()}
+                    />
+                    : null
+                }
             </div>
         )
     }

@@ -18,3 +18,11 @@
     position: relative;
     border: 1px solid black;
 }
+
+.selectedtype__locations {
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 34px;
+    width: 95%;
+}
