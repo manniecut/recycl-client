@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-// import md5 from 'md5';
-// import GutHubContext from '../../GutHubContext';
 // import config from '../../config';
-//import './CreateAccount.css'
+import './CreateAccount.css'
 
-// this component allows the user to create an account to use with GutHub
+// this component allows the user to create an account
 
 class CreateAccount extends Component {
     state = {
@@ -13,8 +11,6 @@ class CreateAccount extends Component {
         check: '',
         email: ''
     }
-
-    // static contextType = GutHubContext;
 
     static defaultProps = {
         history: {
@@ -27,6 +23,7 @@ class CreateAccount extends Component {
     };
 
     // this is a validation check to see if the username is taken, and if the password matches the check
+    
     /*validateNewUser = (username, pass, check) => {
         const users = this.context.users
         const usernames = []
@@ -45,6 +42,7 @@ class CreateAccount extends Component {
 
 
     // sends the new user object to be created in the database
+    
     handleSubmit = e => {
         e.preventDefault();
         // const { username, pass, check, email } = this.state

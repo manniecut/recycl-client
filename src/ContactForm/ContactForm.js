@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './ContactForm.css';
+
+// this is a text input form to recieve user feedback
 
 class ContactForm extends Component {
 
@@ -22,7 +25,7 @@ class ContactForm extends Component {
                 <button type="submit">Submit</button>
                 <button className='cancel__button' type='button' onClick={this.handleCancel}>
                     Cancel
-                         </button>
+                </button>
             </form>
         )
     }

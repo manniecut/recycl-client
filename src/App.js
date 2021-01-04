@@ -7,7 +7,7 @@ import Login from './Login/Login';
 import CreateAccount from './Login/CreateAccount/CreateAccount';
 import SelectScreen from './SelectScreen/SelectScreen';
 import SelectedType from './SelectedType/SelectedType';
-import Pickup from './Pickup/Pickup';
+import Pickup from './Pickup/Pickups';
 import Menu from './Menu/Menu';
 import EditAccount from './Login/EditAccount/EditAccount';
 import ContactForm from './ContactForm/ContactForm';
@@ -77,16 +77,10 @@ class App extends Component {
           path="/contact"
           component={ContactForm} />
 
-
-
-
-
         <Route
           exact
           path="/select/:selectedType"
           component={SelectedType} />
-
-
       </>
     )
     // }

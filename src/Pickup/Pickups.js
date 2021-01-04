@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import PickupItem from './Item/PickupItem';
-//import './RecyclHeader.css';
+import './Pickups.css';
 
-// this is the header component
+// this is the component for the Scheduled Pickups page
 
-class Pickup extends Component {
+class Pickups extends Component {
 
     render() {
         return (
-            <>
+            <div className='pickups__page'>
                 <h1>Pickups</h1>
+                <p>Your Location: 123 Any Street, Detroit, MI</p>
                 <PickupItem />
                 <PickupItem />
                 <PickupItem />
-            </>
+            </div>
         )
     }
 }
 
 
-export default Pickup;
+export default Pickups;

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-//import GutHubContext from '../GutHubContext';
 import './PickupItem.css'
 
-// this component is what the user sees upon logging in, it provides a quick description of GutHub and allows logging out
+// this is an individual Scheduled Pickup Item to be displayed on the scheduled pickups list page
 
 class PickupItem extends Component {
-
-    // props will designate the category of recycling and populate subcategories
 
     render() {
         return (
@@ -14,6 +11,7 @@ class PickupItem extends Component {
                 <h1>Pickup Item: Lithium Batteries</h1>
                 <p>Pickup Date: 01/31/21 2:30PM</p>
                 <p>QTY: 2pcs</p>
+                <button>Cancel Pickup</button>
             </div>
         )
     }

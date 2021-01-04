@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
-// this is the navigation bar component
+// this is the lower navigation bar component
 
 class NavBar extends Component {
 

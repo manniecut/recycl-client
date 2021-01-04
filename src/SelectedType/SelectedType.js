@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PopUpScheduler from '../PopUp/PopUpScheduler';
-//import GutHubContext from '../GutHubContext';
 import './SelectedType.css'
 
-// this component is what the user sees upon logging in, it provides a quick description of GutHub and allows logging out
+// this component is displays the details for recycling a specfic type of item as well as the option to schedule a pickup
 
 class SelectedType extends Component {
 
@@ -19,8 +18,6 @@ class SelectedType extends Component {
         });
     }
 
-    // props will designate the category of recycling and populate subcategories
-
     render() {
         const query = (this.state.selectedType + 'recycling')
         return (
@@ -29,7 +26,7 @@ class SelectedType extends Component {
                 
                 <div className='selectedtype__locations'>
                     <p>Recycling centers near you that take {this.state.selectedType}:</p>
-                    <iframe src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
+                    <iframe title='recycle-centers' src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
                 </div>
                 <h2>- or -</h2>
                 

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import md5 from 'md5';
-// import GutHubContext from '../../GutHubContext';
-// import config from '../../config';
-//import './CreateAccount.css'
+import '../CreateAccount/CreateAccount.css'
 
-// this component allows the user to create an account to use with GutHub
+// this component allows the user to edit their account
 
 class EditAccount extends Component {
     state = {
@@ -27,6 +24,7 @@ class EditAccount extends Component {
     };
 
     // this is a validation check to see if the username is taken, and if the password matches the check
+    
     /*validateNewUser = (username, pass, check) => {
         const users = this.context.users
         const usernames = []
@@ -44,37 +42,11 @@ class EditAccount extends Component {
     }*/
 
 
-    // sends the new user object to be created in the database
+    // sends the edited user object to be patched in the database
+
     handleSubmit = e => {
         e.preventDefault();
-        // const { username, pass, check, email } = this.state
-        // const validation = this.validateNewUser(username, pass, check)
-        // if (validation === true) {
-        //     const newUser = {
-        //         username: username,
-        //         pass: pass,
-        //         email: email,
-        //     }
-        //     fetch(`${config.API_ENDPOINT}/users`, {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(newUser)
-        //     })
-        //         .then(res => {
-        //             if (!res.ok) {
-        //                 return res.json().then(error => {
-        //                     throw error
-        //                 })
-        //             }
-        //             return res.json()
-        //         })
-        //         .then(user => {
-        //             this.context.addUser(user)
-        //             this.props.history.push(`/`)
-        //         })
-        // }
+      
     }
 
 

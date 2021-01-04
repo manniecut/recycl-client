@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import GutHubContext from '../GutHubContext';
 import './SelectScreen.css'
 
-// this component is what the user sees upon logging in, it provides a quick description of GutHub and allows logging out
+// this component is what the user sees upon logging in, it provides the recycling categories
 
 class SelectScreen extends Component {
-
-    //static contextType = GutHubContext;
 
     render() {
         return (

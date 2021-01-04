@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Menu.css';
 
-// this is the Menu component
+// this Menu component keeps some secondary functions out of the way
 
 class Menu extends Component {
 

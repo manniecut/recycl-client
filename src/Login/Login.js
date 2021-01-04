@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import { orderUsers } from '../guthub-helpers';
-//import GutHubContext from '../GutHubContext';
-//import md5 from 'md5';
-//import config from '../config';
-//import './Login.css';
+import './Login.css';
 
 // this is the login component for GutHub
 
@@ -15,8 +11,6 @@ class Login extends Component {
         password: '',
         userId: ''
     }
-
-    //static contextType = GutHubContext;
 
     handleSubmit = e => {
         e.preventDefault();
@@ -49,7 +43,7 @@ class Login extends Component {
 
     /** Form to State Functions */
 
-    // sets the user in the state and matches it's ID
+    // sets the user in the state and matches its ID
     handleSetUser = username => {
         // const users = orderUsers(this.context.users)
         // users.forEach(user => {
@@ -63,10 +57,9 @@ class Login extends Component {
         // })
     }
 
-    // sets encrypted pass in the state
+    // sets pass in the state
     handleSetPass = pass => {
         this.setState({
-            //password: md5(pass)
             password: pass
         })
     }
