@@ -77,7 +77,7 @@ class PopUpScheduler extends Component {
                         onChange={e => this.setDay(e.target.value)}
                     /><br />
                     <label htmlFor="pickuptime">Select a time:</label><br />
-                    <input type="time" id="pickuptime" name="pickuptime" min="08:00" max="18:00"
+                    <input type="time" id="pickuptime" name="pickuptime" min="08:00" max="20:00"
                         onChange={e => this.setTime(e.target.value)}
                     /><br />
                     <p>At your location:</p>
