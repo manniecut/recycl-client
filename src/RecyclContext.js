@@ -1,9 +1,9 @@
 import React from 'react';
 
 const RecyclContext = React.createContext({
-
-    setUser: () => { }
-
+    user: [],
+    setUser: () => { },
+    logout: () => { }
 })
 
 export default RecyclContext

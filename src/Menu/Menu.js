@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import RecyclContext from '../RecyclContext';
 import './Menu.css';
 
 // this Menu component keeps some secondary functions out of the way
 
 class Menu extends Component {
+
+    
+    static contextType = RecyclContext
 
     render() {
         return (
@@ -18,7 +22,7 @@ class Menu extends Component {
                         <Link to="/contact">Contact Us</Link>
                     </li>
                     <li>
-                        <Link to='/login'>Log Out</Link>
+                        <Link to='/' onClick={this.context.logout}>Log Out</Link>
                     </li>
                 </ul>
             </div>

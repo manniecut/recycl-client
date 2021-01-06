@@ -12,8 +12,10 @@ import Menu from './Menu/Menu';
 import EditAccount from './Login/EditAccount/EditAccount';
 import ContactForm from './ContactForm/ContactForm';
 
-import './App.css';
 import RecyclContext from './RecyclContext';
+import config from './config';
+import './App.css';
+
 
 class App extends Component {
 
@@ -21,10 +23,7 @@ class App extends Component {
   /** STATE  */
 
   state = {
-    user: {
-      username: '',
-      userid: '',
-    },
+    user: [],
     loggedin: '',
   }
 
@@ -33,27 +32,30 @@ class App extends Component {
 
 
   setUser = (username, userId) => {
-    this.setState({
-      user: {
-        username: username
-      },
-      loggedin: true
-    })
+    fetch(`${config.API_ENDPOINT}/users/${username}`)
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e));
+        return res.json();
+      })
+      .then(user =>
+        this.setState({
+          user: user[0],
+          loggedin: true
+        })
+      )
   }
 
   handleLogout = () => {
     this.setState({
-      user: {
-        username: '',
-        userid: '',
-      },
+      user: [],
       loggedin: false
     })
   };
 
 
 
-  
+
   /** RENDERING */
 
   renderRoutes() {
@@ -117,7 +119,9 @@ class App extends Component {
 
   render() {
     const value = {
-      setUser: this.setUser
+      user: this.state.user,
+      setUser: this.setUser,
+      logout: this.handleLogout
     }
     return (
       <RecyclContext.Provider value={value}>

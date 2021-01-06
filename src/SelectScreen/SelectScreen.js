@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config';
+import RecyclContext from '../RecyclContext';
 import './SelectScreen.css';
 
 // this component is what the user sees upon logging in, it provides the recycling categories
@@ -11,6 +12,8 @@ class SelectScreen extends Component {
         recyclables: [],
         partsReady: false
     }
+
+    static contextType = RecyclContext;
 
     componentDidMount() {
         fetch(`${config.API_ENDPOINT}/recyclables`)
@@ -46,7 +49,7 @@ class SelectScreen extends Component {
         return (
             <div className='selectscreen'>
                 <div>
-                    <h3>hello Sarah!</h3>
+                    <h3>hello {this.context.user.username}</h3>
                     <p>Help us keep rivers clean</p>
                     <hr />
                     <h4>What do you want to recycle?</h4>

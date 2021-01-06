@@ -25,7 +25,7 @@ class SelectedType extends Component {
                 <h3>{this.state.selectedType}</h3>
                 
                 <div className='selectedtype__locations'>
-                    <p>Recycling centers near you that take {this.state.selectedType}:</p>
+                    <p>Places near you that might take {this.state.selectedType}:</p>
                     <iframe title='recycle-centers' src={`https://www.google.com/maps/embed/v1/place?key=${this.state.mapsKey}&q=${query}`}></iframe>
                 </div>
                 <h2>- or -</h2>
