@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-// import config from '../../config';
+import config from '../../config';
 import './CreateAccount.css'
 
 // this component allows the user to create an account
 
 class CreateAccount extends Component {
     state = {
+        users: [],
         username: '',
         pass: '',
+        pickuplocation: '',
         check: '',
         email: ''
     }
@@ -18,14 +20,29 @@ class CreateAccount extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/users`)
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e));
+                return res.json();
+            })
+            .then(users => {
+                this.setState({
+                    users: users
+                })
+            })
+            .catch(error => alert('Users database could not be found. Please try again later.'))
+    }
+
     handleCancel = () => {
         this.props.history.goBack();
     };
 
     // this is a validation check to see if the username is taken, and if the password matches the check
-    
-    /*validateNewUser = (username, pass, check) => {
-        const users = this.context.users
+
+    validateNewUser = (username, pass, check) => {
+        const users = this.state.users
         const usernames = []
         users.forEach(user => {
             usernames.push(user.username)
@@ -38,41 +55,42 @@ class CreateAccount extends Component {
             return false
         } else
             return true
-    }*/
+    }
 
 
     // sends the new user object to be created in the database
-    
+
     handleSubmit = e => {
         e.preventDefault();
-        // const { username, pass, check, email } = this.state
-        // const validation = this.validateNewUser(username, pass, check)
-        // if (validation === true) {
-        //     const newUser = {
-        //         username: username,
-        //         pass: pass,
-        //         email: email,
-        //     }
-        //     fetch(`${config.API_ENDPOINT}/users`, {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(newUser)
-        //     })
-        //         .then(res => {
-        //             if (!res.ok) {
-        //                 return res.json().then(error => {
-        //                     throw error
-        //                 })
-        //             }
-        //             return res.json()
-        //         })
-        //         .then(user => {
-        //             this.context.addUser(user)
-        //             this.props.history.push(`/`)
-        //         })
-        // }
+        const { username, pass, check, email, pickuplocation } = this.state
+        const validation = this.validateNewUser(username, pass, check)
+        if (validation === true) {
+            const newUser = {
+                username: username,
+                pass: pass,
+                email: email,
+                pickuplocation: pickuplocation
+            }
+            fetch(`${config.API_ENDPOINT}/users`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(error => {
+                            throw error
+                        })
+                    }
+                    return res.json()
+                })
+                .then(user => {
+                    alert('user created')
+                    this.props.history.push(`/`)
+                })
+        }
     }
 
 
@@ -94,6 +112,12 @@ class CreateAccount extends Component {
     handleCheckUpdate = check => {
         this.setState({
             check: check
+        })
+    }
+
+    handleAddressUpdate = address => {
+        this.setState({
+            pickuplocation: address
         })
     }
 
@@ -139,8 +163,8 @@ class CreateAccount extends Component {
                         type='text'
                         name='location'
                         id='location'
-                        onChange={e => console.log(e.target.value)}
-                        /><br />
+                        onChange={e => this.handleAddressUpdate(e.target.value)}
+                    /><br />
 
                     <label htmlFor='password'>Email (optional, for latest updates):</label><br />
                     <input
@@ -149,11 +173,12 @@ class CreateAccount extends Component {
                         id='email'
                         onChange={e => this.handleEmailUpdate(e.target.value)} /><br />
                     <div >
-                        <p>By signing up you agree that you've been made aware that this is currently in
-                    testing phase and the password isn't super secure so please use a throwaway password.
-                    *This app is a demo for my portfolio of my capabilities, and does not represent
-                    a currently functional service in the real world, so please be aware that no one will
-                    show up to your location for any scheduled pickups.</p>
+                        <p>
+                            *This app is a demo of my capabilities for my portfolio and does not represent
+                            a currently functioning service in the real world, so please be aware that no one will
+                            show up to your location for any scheduled pickups. By signing up you agree that you've
+                            been made aware that this is currently in testing phase and the password isn't super
+                    secure so please use a throwaway password. Thanks and enjoy!</p>
                         <button className='login__button' type='submit'>
                             Create
                          </button>
