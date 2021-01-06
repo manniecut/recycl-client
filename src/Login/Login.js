@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import RecyclContext from '../RecyclContext';
+import config from '../config';
 import './Login.css';
 
 // this is the login component for GutHub
@@ -8,14 +10,15 @@ class Login extends Component {
 
     state = {
         username: '',
-        password: '',
-        userId: ''
+        password: ''
     }
+
+    
+    static contextType = RecyclContext;
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
-        /*const loggingUser = {
+        const loginUser = {
             password: this.state.password,
             username: this.state.username
         }
@@ -24,7 +27,7 @@ class Login extends Component {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(loggingUser)
+            body: JSON.stringify(loginUser)
         })
             .then(res => {
                 if (!res.ok) {
@@ -35,9 +38,9 @@ class Login extends Component {
                 return res.json()
             })
             .then(res => {
-                this.context.setUser(res, this.state.userId)
+                this.context.setUser(res)
             })
-            .catch(error => { alert('Incorrect login, please try again.') })*/
+            .catch(error => { alert('Incorrect login, please try again.') })
     }
 
 
@@ -45,16 +48,9 @@ class Login extends Component {
 
     // sets the user in the state and matches its ID
     handleSetUser = username => {
-        // const users = orderUsers(this.context.users)
-        // users.forEach(user => {
-        //     if (user.username === username) {
         this.setState({
-            //userId: user.id,
             username: username
         })
-        //         return
-        //     }
-        // })
     }
 
     // sets pass in the state
@@ -93,7 +89,7 @@ class Login extends Component {
                         />
                     </div>
                     <div>
-                        <button type='submit' className='login__button' disabled>
+                        <button type='submit' className='login__button'>
                             Login
                         </button><br />
                         <Link to='/home'>Static Client: Click here to Log In</Link>

@@ -13,90 +13,122 @@ import EditAccount from './Login/EditAccount/EditAccount';
 import ContactForm from './ContactForm/ContactForm';
 
 import './App.css';
+import RecyclContext from './RecyclContext';
 
 class App extends Component {
 
 
-  /** STATE 
-    state = {}
-  */
+  /** STATE  */
 
+  state = {
+    user: {
+      username: '',
+      userid: '',
+    },
+    loggedin: '',
+  }
 
 
   /** CRUD */
 
 
+  setUser = (username, userId) => {
+    this.setState({
+      user: {
+        username: username
+      },
+      loggedin: true
+    })
+  }
 
+  handleLogout = () => {
+    this.setState({
+      user: {
+        username: '',
+        userid: '',
+      },
+      loggedin: false
+    })
+  };
+
+
+
+  
   /** RENDERING */
 
   renderRoutes() {
-    // if (this.state.loggedin !== true) {
-    //   return (
-    //     <>
-    //       <Route
-    //         path="/(|search|myrecipes|messages|buddies)"
-    //         component={Login} />
-    //       <Route
-    //         exact
-    //         path="/createaccount/"
-    //         component={CreateAccount} />
-    //     </>
-    //   )
-    // } else {
-    return (
-      <>
-        <Route
-          exact
-          path="/"
-          component={Login} />
-        <Route
-          path="/login"
-          component={Login} />
-        <Route
-          path="/createaccount"
-          component={CreateAccount} />
-        <Route
-          exact
-          path="/home"
-          component={SelectScreen} />
-        <Route
-          exact
-          path="/pickups"
-          component={Pickup} />
+    if (this.state.loggedin !== true) {
+      return (
+        <>
+          <Route
+            path="/(|home|pickups|contact|menu)"
+            component={Login} />
+          <Route
+            exact
+            path="/createaccount/"
+            component={CreateAccount} />
+        </>
+      )
+    } else {
+      return (
+        <>
+          <Route
+            exact
+            path="/"
+            component={SelectScreen} />
+          <Route
+            path="/login"
+            component={Login} />
+          <Route
+            path="/createaccount"
+            component={CreateAccount} />
+          <Route
+            exact
+            path="/home"
+            component={SelectScreen} />
+          <Route
+            exact
+            path="/pickups"
+            component={Pickup} />
 
-        <Route
-          exact
-          path="/menu"
-          component={Menu} />
-        <Route
-          exact
-          path="/editaccount"
-          component={EditAccount} />
-        <Route
-          exact
-          path="/contact"
-          component={ContactForm} />
+          <Route
+            exact
+            path="/menu"
+            component={Menu} />
+          <Route
+            exact
+            path="/editaccount"
+            component={EditAccount} />
+          <Route
+            exact
+            path="/contact"
+            component={ContactForm} />
 
-        <Route
-          exact
-          path="/select/:selectedType"
-          component={SelectedType} />
-      </>
-    )
-    // }
+          <Route
+            exact
+            path="/select/:selectedType"
+            component={SelectedType} />
+        </>
+      )
+    }
   }
 
 
 
   render() {
+    const value = {
+      setUser: this.setUser
+    }
     return (
-      <div className="App" >
-        <RecyclHeader />
-        <main className="App__main">
-          {this.renderRoutes()}
-        </main>
-        <NavBar />
-      </div>
+      <RecyclContext.Provider value={value}>
+        <div className="App" >
+          <RecyclHeader />
+          <main className="App__main">
+            {this.renderRoutes()}
+          </main>
+          <NavBar />
+        </div>
+      </RecyclContext.Provider>
     );
   }
 }
