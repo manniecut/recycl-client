@@ -1,10 +1,46 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './SelectScreen.css'
+import config from '../config';
+import './SelectScreen.css';
 
 // this component is what the user sees upon logging in, it provides the recycling categories
 
 class SelectScreen extends Component {
+
+    state = {
+        recyclables: [],
+        partsReady: false
+    }
+
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/recyclables`)
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e));
+                return res.json();
+            })
+            .then(recs => {
+                this.setState({
+                    recyclables: recs,
+                    partsReady: true
+                })
+            })
+            .catch(error => alert('Recyclable materials not found. Please try again.'))
+    }
+
+
+    renderSelections = () => {
+        if (this.state.partsReady === true) {
+            const recyclables = this.state.recyclables
+            return (
+                <ul className='select__container'>
+                    {recyclables.map(rec => {
+                        return <li key={rec.id} className='select__item'><Link to={`/select/${rec.title}`}>{rec.title}</Link></li>
+                    })}
+                </ul>
+            )
+        }
+    }
 
     render() {
         return (
@@ -14,14 +50,7 @@ class SelectScreen extends Component {
                     <p>Help us keep rivers clean</p>
                     <hr />
                     <h4>What do you want to recycle?</h4>
-                    <ul className='select__container'>
-                        <li className='select__item'><Link to='/select/Batteries'>Batteries</Link></li>
-                        <li className='select__item'><Link to='/select/Metal'>Metal</Link></li>
-                        <li className='select__item'><Link to='/select/Cosmetics'>Cosmetics</Link></li>
-                        <li className='select__item'><Link to='/select/Electronics'>Electronics</Link></li>
-                        <li className='select__item'><Link to='/select/Plastic'>Plastic</Link></li>
-                        <li className='select__item'><Link to='/select/Paper'>Paper</Link></li>
-                    </ul>
+                    {this.renderSelections()}
                 </div>
             </div>
         )
