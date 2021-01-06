@@ -92,7 +92,7 @@ class Login extends Component {
                         <button type='submit' className='login__button'>
                             Login
                         </button><br />
-                        <Link to='/home'>Static Client: Click here to Log In</Link>
+                        <p>This is a demo app so you can log in with<br/><strong>"Guest, guest"</strong>.</p>
                     </div>
                     <p>Or <Link to='/createaccount'>Create an Account</Link></p>
                 </form>

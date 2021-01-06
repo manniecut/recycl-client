@@ -24,7 +24,7 @@ class PopUpScheduler extends Component {
         const newPickup = {
             details: this.props.selectedType,
             pickuplocation: this.context.user.pickuplocation,
-            pickupdate: (this.state.day + ' ' + this.state.time),
+            pickupdate: (this.state.day + ', ' + this.state.time),
             client: this.context.user.id
         }
         fetch(`${config.API_ENDPOINT}/pickups`, {
