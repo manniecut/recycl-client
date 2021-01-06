@@ -30,7 +30,6 @@ class App extends Component {
 
   /** CRUD */
 
-
   setUser = (username, userId) => {
     fetch(`${config.API_ENDPOINT}/users/${username}`)
       .then(res => {
@@ -52,6 +51,19 @@ class App extends Component {
       loggedin: false
     })
   };
+
+  handleUpdateUser = updatedUser => {
+    this.setState({
+      user: {
+        id: this.state.user.id,
+        email: updatedUser.email,
+        isadmin: this.state.user.isadmin,
+        joindate: this.state.user.joindate,
+        pickuplocation: updatedUser.pickuplocation,
+        username: this.state.user.username
+      }
+    })
+  }
 
 
 
@@ -121,7 +133,8 @@ class App extends Component {
     const value = {
       user: this.state.user,
       setUser: this.setUser,
-      logout: this.handleLogout
+      logout: this.handleLogout,
+      updateUser: this.handleUpdateUser
     }
     return (
       <RecyclContext.Provider value={value}>

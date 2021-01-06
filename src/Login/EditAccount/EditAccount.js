@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import '../CreateAccount/CreateAccount.css'
+import RecyclContext from '../../RecyclContext';
+import config from '../../config';
+import '../CreateAccount/CreateAccount.css';
 
 // this component allows the user to edit their account
 
 class EditAccount extends Component {
     state = {
-        username: '',
-        pass: '',
-        check: '',
-        email: ''
+        username: this.context.user.username,
+        email: this.context.user.email,
+        pickuplocation: this.context.user.pickuplocation
     }
 
-    // static contextType = GutHubContext;
+    static contextType = RecyclContext;
 
     static defaultProps = {
         history: {
@@ -23,30 +24,28 @@ class EditAccount extends Component {
         this.props.history.goBack();
     };
 
-    // this is a validation check to see if the username is taken, and if the password matches the check
-    
-    /*validateNewUser = (username, pass, check) => {
-        const users = this.context.users
-        const usernames = []
-        users.forEach(user => {
-            usernames.push(user.username)
-        })
-        if ((usernames.includes(username)) && (check === pass)) {
-            alert('username exists')
-            return false
-        } else if ((check !== pass)) {
-            alert('check passwords')
-            return false
-        } else
-            return true
-    }*/
 
 
     // sends the edited user object to be patched in the database
 
     handleSubmit = e => {
         e.preventDefault();
-      
+        const updatedUser = {
+            email: this.state.email,
+            pickuplocation: this.state.pickuplocation
+        }
+        fetch(`${config.API_ENDPOINT}/users/${this.context.user.username}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedUser)
+        })
+            .then(user => {
+                this.context.updateUser(updatedUser)
+                alert('update successful')
+            })
+            .catch(error => { console.log(error) })
     }
 
 
@@ -54,15 +53,9 @@ class EditAccount extends Component {
     /** Form to State Updates */
 
 
-    handlePassUpdate = pass => {
+    handleAddressUpdate = address => {
         this.setState({
-            pass: pass
-        })
-    }
-
-    handleCheckUpdate = check => {
-        this.setState({
-            check: check
+            pickuplocation: address
         })
     }
 
@@ -77,43 +70,25 @@ class EditAccount extends Component {
     render() {
         return (
             <>
-                <h2>Edit Account: STATIC</h2> <br />
+                <h2>Edit Account: {this.context.user.username}</h2> <br />
                 <form className='LoginPage' onSubmit={this.handleSubmit}>
-
-                    <label htmlFor='password'>Password:</label><br />
-                    <input
-                        type='password'
-                        name='password'
-                        id='password'
-                        onChange={e => this.handlePassUpdate(e.target.value)}
-                        required /><br />
-
-                    <label htmlFor='passcheck'>Password Check:</label><br />
-                    <input
-                        type='password'
-                        name='passcheck'
-                        id='passcheck'
-                        onChange={e => this.handleCheckUpdate(e.target.value)}
-                        required /><br />
-
-                    <label htmlFor='location'>Address (optional*):</label><br />
+                    <label htmlFor='location'>Address:</label><br />
                     <input
                         type='text'
                         name='location'
                         id='location'
-                        onChange={e => console.log(e.target.value)}
-                        required /><br />
+                        value={this.state.pickuplocation}
+                        onChange={e => this.handleAddressUpdate(e.target.value)}
+                        required /><br /><br />
 
-                    <label htmlFor='password'>Email (optional, for latest updates):</label><br />
+                    <label htmlFor='email'>Email:</label><br />
                     <input
                         type='text'
                         name='email'
                         id='email'
+                        value={this.state.email}
                         onChange={e => this.handleEmailUpdate(e.target.value)} /><br />
-                    <div >
-                        <p>*This app is a demo for my portfolio of my capabilities, and does not represent
-                    a currently functional service in the real world, so please be aware that no one will
-                    show up to your location for any scheduled pickups.</p>
+                    <div><br /><br />
                         <button className='login__button' type='submit'>
                             Save
                          </button>
