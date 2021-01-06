@@ -33,6 +33,7 @@ class SelectedType extends Component {
                 <button onClick={e => this.togglePopup()}>Schedule a Pickup</button>
                 {this.state.showPopUp ?
                     <PopUpScheduler
+                        selectedType={this.state.selectedType}
                         closePopup={e => this.togglePopup()}
                     />
                     : null
