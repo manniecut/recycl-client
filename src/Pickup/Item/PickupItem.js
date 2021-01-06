@@ -7,12 +7,11 @@ class PickupItem extends Component {
 
     render() {
         return (
-            <div className='pickup__item'>
-                <h1>Pickup Item: Lithium Batteries</h1>
-                <p>Pickup Date: 01/31/21 2:30PM</p>
-                <p>QTY: 2pcs</p>
+            <li className='pickup__item'>
+                <h1>Pickup Item: {this.props.details}</h1>
+                <p>Pickup Date: {this.props.date}</p>
                 <button>Cancel Pickup</button>
-            </div>
+            </li>
         )
     }
 }
