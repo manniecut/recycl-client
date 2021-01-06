@@ -15,6 +15,10 @@ class Pickups extends Component {
     static contextType = RecyclContext;
 
     componentDidMount() {
+        this.fetchPickups()
+    }
+
+    fetchPickups() {
         fetch(`${config.API_ENDPOINT}/pickups/${this.context.user.id}`)
             .then(res => {
                 if (!res.ok) {
@@ -32,6 +36,23 @@ class Pickups extends Component {
             .catch(error => { alert('Cant find pickups, please try again') })
     }
 
+    handleDelete = id => {
+        fetch(`${config.API_ENDPOINT}/pickups/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res
+                        .then(e => Promise.reject(e))
+                return res
+            })
+            .then(res => {
+                this.fetchPickups()
+            })
+
+            .catch(error => { console.log('error') })
+    }
+
     renderItems = () => {
         const pickups = this.state.pickups
         return (
@@ -39,9 +60,12 @@ class Pickups extends Component {
                 {pickups.map(pickup => {
                     return (
                         <PickupItem
+                            key={pickup.id}
+                            id={pickup.id}
                             details={pickup.details}
                             location={pickup.pickuplocation}
                             date={pickup.pickupdate}
+                            delete={this.handleDelete}
                         />
                     )
                 })}

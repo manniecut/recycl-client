@@ -10,7 +10,7 @@ class PickupItem extends Component {
             <li className='pickup__item'>
                 <h1>Pickup Item: {this.props.details}</h1>
                 <p>Pickup Date: {this.props.date}</p>
-                <button>Cancel Pickup</button>
+                <button type='button' onClick={e => this.props.delete(this.props.id)}>Cancel Pickup</button>
             </li>
         )
     }
