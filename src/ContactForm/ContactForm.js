@@ -40,6 +40,7 @@ class ContactForm extends Component {
             })
             .then(message => {
                 alert('Feedback sent! Thank you!')
+                this.props.history.goBack();
             })
     }
 
