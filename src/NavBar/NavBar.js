@@ -8,7 +8,7 @@ class NavBar extends Component {
 
     render() {
         return (
-            <footer>
+            <footer className='navigation'>
                 <ul>
                     <li>
                         <h1><NavLink className='nav__link' to="/home">Home</NavLink></h1>
