@@ -70,6 +70,20 @@ class App extends Component {
 
   /** RENDERING */
 
+  renderHeader() {
+    if (this.state.loggedin === true)
+      return (
+        <RecyclHeader />
+      )
+  }
+
+  renderNav() {
+    if (this.state.loggedin === true)
+      return (
+        <NavBar />
+      )
+  }
+
   renderRoutes() {
     if (this.state.loggedin !== true) {
       return (
@@ -139,11 +153,11 @@ class App extends Component {
     return (
       <RecyclContext.Provider value={value}>
         <div className="App" >
-          <RecyclHeader />
+          {this.renderHeader()}
           <main className="App__main">
             {this.renderRoutes()}
           </main>
-          <NavBar />
+          {this.renderNav()}
         </div>
       </RecyclContext.Provider>
     );

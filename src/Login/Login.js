@@ -13,7 +13,7 @@ class Login extends Component {
         password: ''
     }
 
-    
+
     static contextType = RecyclContext;
 
     handleSubmit = e => {
@@ -65,11 +65,18 @@ class Login extends Component {
         return (
             <>
                 <form className='LoginPage' onSubmit={this.handleSubmit}>
-                    <h3>hello!</h3>
-                    <h3>welcome to a new way to recycl.</h3>
-                    <p>Saving the planet one recyclable at a time.</p>
-                    <p>Find out where to take anything you want to recycle or have it picked up from your doorstep*.</p>
-                    <div>
+                    <h1>hello!</h1>
+                    <h1>welcome to a new way to recycl.</h1>
+                    <div className='image_with_overlay'>
+                        <div className='overlay_text'>
+                            <h1>Saving the planet one recyclable at a time.</h1>
+                            <p>Find out where to take anything you want to recycle or have it picked up from your doorstep*.</p>
+
+                        </div>
+                    </div>
+                    <hr />
+                    <h2>let's get started!</h2>
+                    <div className='input_area'>
                         <label htmlFor='username'>Username:</label>
                         <input
                             type='text'
@@ -92,7 +99,7 @@ class Login extends Component {
                         <button type='submit' className='login__button'>
                             Login
                         </button><br />
-                        <p>This is a demo app so you can log in with<br/><strong>"Guest, guest"</strong>.</p>
+                        <p>This is a demo app so you can log in with<br /><strong>"Guest, guest"</strong>.</p>
                     </div>
                     <p>Or <Link to='/createaccount'>Create an Account</Link></p>
                 </form>

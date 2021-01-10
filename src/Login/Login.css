@@ -1,0 +1,73 @@
+.LoginPage {
+    overflow: hidden;
+    margin-bottom: 140px;
+}
+
+.LoginPage .image_with_overlay {
+    height: 70vh;
+    background-attachment: scroll;
+    background-image: url("../img/forest.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 0px;
+    width: auto;
+    position: relative;
+}
+
+.LoginPage .overlay_text {
+    display: block;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.897);
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color:rgb(0, 124, 124);
+}
+
+.LoginPage .overlay_text h1{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.LoginPage h1 {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.LoginPage h2 {
+    font-weight: 300;
+}
+
+.LoginPage hr {
+    margin: 30px;
+    border: 1px solid green;
+}
+
+.LoginPage input {
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #4f4f4f;
+    border-radius: 8px;
+}
+
+.LoginPage .input_area{
+    width: 300px;
+    margin: auto;
+
+}
+
+.LoginPage button {
+    width: 100px;
+    color: white;
+    background-color: green;
+    border: 0;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 6px;
+}
