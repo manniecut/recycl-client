@@ -3,6 +3,44 @@
     padding-bottom: 40px;
 }
 
+.selectscreen h3 {
+    font-weight: 400;
+}
+
+.selectscreen hr {
+    margin: 15px;
+    border: 1px solid green;
+}
+
+.selectscreen__rivers {
+    height: 35vh;
+    background-attachment: scroll;
+    background-image: url('../img/rivers.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 0px;
+    width: auto;
+    position: relative;
+}
+
+.rivers__text {
+    background-color: rgba(255, 255, 255, 0.87);
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 0;
+    padding: 7px;
+    border: 0;
+    border-radius: 15px 0px 0px 15px;
+}
+
 .select__container {
     display: flex;
     flex-wrap: wrap;
@@ -14,8 +52,78 @@
 
 .select__item {
     width: 48%;
+    height: 10vh;
     padding-bottom: 24%;
     margin-bottom: 2%;
     position: relative;
-    border: 1px solid black;
+    border: 1px solid gray;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.select__item a {
+    background-color: rgba(255, 255, 255, 0.87);
+    color: rgba(0, 124, 124);
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    border: 0;
+}
+
+.selected_Batteries {
+    background-image: url('../img/Batteries.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selected_Cosmetics {
+    background-image: url('../img/Cosmetics.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selected_Electronics {
+    background-image: url('../img/Electronics.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selected_Metal {
+    background-image: url('../img/Metal.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selected_Paper {
+    background-image: url('../img/Paper.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selected_Plastic {
+    background-image: url('../img/Plastic.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media all and (min-width: 800px) {
+    .selectscreen {
+        width: 75vh;
+        margin: auto;
+        padding-bottom: 80px;
+    }
 }

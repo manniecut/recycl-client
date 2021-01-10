@@ -38,7 +38,7 @@ class SelectScreen extends Component {
             return (
                 <ul className='select__container'>
                     {recyclables.map(rec => {
-                        return <li key={rec.id} className='select__item'><Link to={`/select/${rec.title}`}>{rec.title}</Link></li>
+                        return <li key={rec.id} className={`select__item + selected_${rec.title}`}><Link to={`/select/${rec.title}`}>{rec.title}</Link></li>
                     })}
                 </ul>
             )
@@ -48,10 +48,12 @@ class SelectScreen extends Component {
     render() {
         return (
             <div className='selectscreen'>
+                    <hr />
                 <div>
                     <h3>hello {this.context.user.username}</h3>
-                    <p>Help us keep rivers clean</p>
-                    <hr />
+                    <div className='selectscreen__rivers'>
+                        <p className='rivers__text'>help us keep rivers clean</p>
+                    </div>
                     <h4>What do you want to recycle?</h4>
                     {this.renderSelections()}
                 </div>
