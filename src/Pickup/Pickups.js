@@ -77,7 +77,8 @@ class Pickups extends Component {
         return (
             <div className='pickups__page'>
                 <h1>Pickups</h1>
-                <p>Your Location: {this.context.user.pickuplocation}</p>
+                <p className='pickup_location_label'>Your Location:</p>
+                <p className='pickup_location'>{this.context.user.pickuplocation}</p>
                 {this.renderItems()}
             </div>
         )
