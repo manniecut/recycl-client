@@ -1,5 +1,5 @@
 header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 header h1 a {
@@ -8,12 +8,11 @@ header h1 a {
     font-size: 40px;
     font-weight: 300;
     margin: 0;
-    padding-top: 20px;
     text-decoration: none;
 }
 
 
-/*
+
 @media all and (min-width: 800px) {
     header {
         display: flex;
@@ -25,4 +24,4 @@ header h1 a {
         padding-top: 0;
         text-align: left;
     }
-}*/
+}
