@@ -25,7 +25,7 @@ Recycl is an app that helps the user find proper ways to recycle their materials
 ## Screenshots - coming soon
 - Login Page:
   - ![Login Page](https://user-images.githubusercontent.com/68138888/104245783-e3178700-5432-11eb-8974-20f96cda5083.png)
-  - ![Login Page]((https://user-images.githubusercontent.com/68138888/104245808-ee6ab280-5432-11eb-8f99-a7c12d3aaef0.png))
+  - ![Login Page](https://user-images.githubusercontent.com/68138888/104245808-ee6ab280-5432-11eb-8f99-a7c12d3aaef0.png)
 - Selection Page:
   - ![Selection](https://user-images.githubusercontent.com/68138888/104245840-faef0b00-5432-11eb-81cb-bba8e76095ce.png)
 - Selected Recyclable:
