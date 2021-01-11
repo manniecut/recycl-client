@@ -8,8 +8,9 @@ class PickupItem extends Component {
     render() {
         return (
             <li className='pickup__item'>
-                <h1>Pickup Item: {this.props.details}</h1>
-                <p>Pickup Date: {this.props.date}</p>
+                <h1><span className='pickup_title'>{this.props.details}</span> Pickup</h1>
+                <p className='pickup_date_label'>Pickup Date:</p>
+                <p className='pickup_date'>{this.props.date}</p>
                 <button type='button' onClick={e => this.props.delete(this.props.id)}>Cancel Pickup</button>
             </li>
         )

@@ -1,5 +1,4 @@
 .pickup__item {
-    border: 1px solid black;
     width: 88%;
     margin: auto;
     margin-bottom: 10px;
@@ -7,4 +6,20 @@
 
 .pickup__item h1 {
     font-size: 16px;
+}
+.pickup__item .pickup_title {
+    color: rgb(0, 128, 90);
+}
+
+.pickup_date_label {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 500;
+    color: darkgray;
+}
+
+.pickup_date {
+    margin-top: 2px;
+    font-style: italic;
 }
