@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RecyclContext from '../../RecyclContext';
 import config from '../../config';
-import '../CreateAccount/CreateAccount.css';
+import './EditAccount.css';
 
 // this component allows the user to edit their account
 
@@ -71,7 +71,7 @@ class EditAccount extends Component {
         return (
             <>
                 <h2>Edit Account: {this.context.user.username}</h2> <br />
-                <form className='LoginPage' onSubmit={this.handleSubmit}>
+                <form className='EditAccountPage' onSubmit={this.handleSubmit}>
                     <label htmlFor='location'>Address:</label><br />
                     <input
                         type='text'
