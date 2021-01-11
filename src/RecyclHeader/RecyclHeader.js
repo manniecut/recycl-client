@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './RecyclHeader.css';
 
-// this is the header component
+// this is the header component, it links to the home page
 
 class RecyclHeader extends Component {
 

@@ -3,7 +3,7 @@ import RecyclContext from '../RecyclContext';
 import config from '../config';
 import './PopUpScheduler.css';
 
-// this popup appears when the user wants to recycle an item on the recycle type page
+// this popup scheduler appears when the user wants to recycle an item on the recycle type page
 
 class PopUpScheduler extends Component {
     state = {
@@ -18,6 +18,9 @@ class PopUpScheduler extends Component {
             goBack: () => { }
         }
     }
+
+    
+    /*** FORM FUNCTIONS */
 
     handleSubmit = e => {
         e.preventDefault();
@@ -49,7 +52,6 @@ class PopUpScheduler extends Component {
             .catch(error => { alert("Can't schedule pickup, please try again.") })
     }
 
-
     setDay = day => {
         this.setState({
             day: day
@@ -63,6 +65,7 @@ class PopUpScheduler extends Component {
         })
     }
 
+    
     render() {
         const today = new Date();
         const  tomorrow = new Date();

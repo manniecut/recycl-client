@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// this component is for an ingredients list item
+// this component is for a selectable recyclable list item
 
 class Selectable extends React.Component {
 

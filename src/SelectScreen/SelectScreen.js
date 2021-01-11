@@ -4,7 +4,7 @@ import config from '../config';
 import RecyclContext from '../RecyclContext';
 import './SelectScreen.css';
 
-// this component is what the user sees upon logging in, it provides the recycling categories
+// this component is what the user sees upon logging in, it provides the selectable recycling categories
 
 class SelectScreen extends Component {
 
@@ -33,10 +33,9 @@ class SelectScreen extends Component {
 
     handleClick = rec => {
         this.props.history.push(`/select/${rec.title}`)
-
     }
 
-
+    // the materials are stored in the database for easy manipulation, this function maps them out into a list
     renderSelections = () => {
         if (this.state.partsReady === true) {
             const recyclables = this.state.recyclables

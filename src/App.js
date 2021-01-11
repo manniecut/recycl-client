@@ -28,7 +28,7 @@ class App extends Component {
   }
 
 
-  /** CRUD */
+  /*** SETTING STATE */
 
   setUser = (username, userId) => {
     fetch(`${config.API_ENDPOINT}/users/${username}`)
@@ -64,8 +64,6 @@ class App extends Component {
       }
     })
   }
-
-
 
 
   /** RENDERING */
@@ -140,8 +138,6 @@ class App extends Component {
       )
     }
   }
-
-
 
   render() {
     const value = {

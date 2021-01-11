@@ -18,6 +18,8 @@ class Pickups extends Component {
         this.fetchPickups()
     }
 
+
+    // this function is seperate from componentDidMount() so that it can be also called by the delete function to trigger a refresh
     fetchPickups() {
         fetch(`${config.API_ENDPOINT}/pickups/${this.context.user.id}`)
             .then(res => {
@@ -52,6 +54,8 @@ class Pickups extends Component {
 
             .catch(error => { console.log('error') })
     }
+
+    // this creates a new list item component for each scheduled pickup 
 
     renderItems = () => {
         const pickups = this.state.pickups

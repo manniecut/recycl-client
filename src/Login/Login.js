@@ -4,7 +4,7 @@ import RecyclContext from '../RecyclContext';
 import config from '../config';
 import './Login.css';
 
-// this is the login component for GutHub
+// this is the login component for Recycl
 
 class Login extends Component {
 
@@ -15,6 +15,10 @@ class Login extends Component {
 
 
     static contextType = RecyclContext;
+
+
+
+    /*** FORM FUNCTIONS */
 
     handleSubmit = e => {
         e.preventDefault();
@@ -44,9 +48,7 @@ class Login extends Component {
     }
 
 
-    /** Form to State Functions */
-
-    // sets the user in the state and matches its ID
+    // sets the user in the state
     handleSetUser = username => {
         this.setState({
             username: username

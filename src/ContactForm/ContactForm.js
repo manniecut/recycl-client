@@ -13,8 +13,16 @@ class ContactForm extends Component {
 
     static contextType = RecyclContext;
 
+    /*** FORM FUNCTIONS */
+
     handleCancel = () => {
         this.props.history.goBack();
+    };
+
+    setMessage = msg => {
+        this.setState({
+            message: msg
+        })
     };
 
     handleSubmit = e => {
@@ -43,13 +51,7 @@ class ContactForm extends Component {
                 this.props.history.goBack();
             })
     }
-
-    setMessage = msg => {
-        this.setState({
-            message: msg
-        })
-    }
-
+    
     render() {
         return (
             <form className='contact_form' onSubmit={this.handleSubmit}>
