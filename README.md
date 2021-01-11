@@ -24,15 +24,16 @@ Recycl is an app that helps the user find proper ways to recycle their materials
 
 ## Screenshots - coming soon
 - Login Page:
-  - ![Login Page]()
+  - ![Login Page](https://user-images.githubusercontent.com/68138888/104245783-e3178700-5432-11eb-8974-20f96cda5083.png)
+  - ![Login Page]((https://user-images.githubusercontent.com/68138888/104245808-ee6ab280-5432-11eb-8f99-a7c12d3aaef0.png))
 - Selection Page:
-  - ![Selection]()
+  - ![Selection](https://user-images.githubusercontent.com/68138888/104245840-faef0b00-5432-11eb-81cb-bba8e76095ce.png)
 - Selected Recyclable:
-  - ![Selected Recyclable]()
+  - ![Selected Recyclable](https://user-images.githubusercontent.com/68138888/104245951-27a32280-5433-11eb-9055-0d0d2b45e412.png)
 - Schedule Pickup:
-  - ![Schedule Pickup]()
+  - ![Schedule Pickup](https://user-images.githubusercontent.com/68138888/104245971-2e319a00-5433-11eb-9109-9973303c764c.png)
 - Pickups Screen:
-  - ![Pickups Screen]()
+  - ![Pickups Screen](https://user-images.githubusercontent.com/68138888/104246009-3ee21000-5433-11eb-8881-5fe50f4a7e7e.png)
 
 ## Available Scripts
 In the project directory, you can run:
