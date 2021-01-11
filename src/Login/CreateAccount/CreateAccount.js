@@ -133,7 +133,7 @@ class CreateAccount extends Component {
         return (
             <>
                 <h2>Create Account</h2> <br />
-                <form className='LoginPage' onSubmit={this.handleSubmit}>
+                <form className='CreateAccountPage' onSubmit={this.handleSubmit}>
                     <label htmlFor='username'>Username:</label><br />
                     <input
                         type='text'
@@ -173,12 +173,11 @@ class CreateAccount extends Component {
                         id='email'
                         onChange={e => this.handleEmailUpdate(e.target.value)} /><br />
                     <div >
-                        <p>
+                        <p className='disclaimer'>
                             *This app is a demo of my capabilities for my portfolio and does not represent
-                            a currently functioning service in the real world, so please be aware that no one will
-                            show up to your location for any scheduled pickups. By signing up you agree that you've
-                            been made aware that this is currently in testing phase and the password isn't super
-                    secure so please use a throwaway password. Thanks and enjoy!</p>
+                            a currently functioning service in the real world, be aware that no one will
+                            show up for any scheduled pickups. This app is currently in testing phase and the password isn't super
+                            secure so please use a throwaway password. Thanks and enjoy!</p>
                         <button className='login__button' type='submit'>
                             Create
                          </button>
