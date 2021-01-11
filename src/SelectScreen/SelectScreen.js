@@ -31,6 +31,11 @@ class SelectScreen extends Component {
             .catch(error => alert('Recyclable materials not found. Please try again.'))
     }
 
+    handleClick = rec => {
+        this.props.history.push(`/select/${rec.title}`)
+
+    }
+
 
     renderSelections = () => {
         if (this.state.partsReady === true) {
@@ -38,7 +43,16 @@ class SelectScreen extends Component {
             return (
                 <ul className='select__container'>
                     {recyclables.map(rec => {
-                        return <li key={rec.id} className={`select__item + selected_${rec.title}`}><Link to={`/select/${rec.title}`}>{rec.title}</Link></li>
+                        return (
+                            <li
+                                key={rec.id}
+                                className={`select__item select_${rec.title}`}
+                                onClick={(e) => this.handleClick(rec)}>
+                                <Link to={`/select/${rec.title}`}>
+                                    {rec.title}
+                                </Link>
+                            </li>
+                        )
                     })}
                 </ul>
             )
@@ -48,7 +62,7 @@ class SelectScreen extends Component {
     render() {
         return (
             <div className='selectscreen'>
-                    <hr />
+                <hr />
                 <div>
                     <h3>hello {this.context.user.username}</h3>
                     <div className='selectscreen__rivers'>

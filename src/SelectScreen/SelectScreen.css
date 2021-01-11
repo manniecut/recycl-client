@@ -12,6 +12,7 @@
     border: 1px solid green;
 }
 
+
 .selectscreen__rivers {
     height: 35vh;
     background-attachment: scroll;
@@ -78,42 +79,42 @@
     border: 0;
 }
 
-.selected_Batteries {
+.select_Batteries {
     background-image: url('../img/Batteries.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.selected_Cosmetics {
+.select_Cosmetics {
     background-image: url('../img/Cosmetics.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.selected_Electronics {
+.select_Electronics {
     background-image: url('../img/Electronics.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.selected_Metal {
+.select_Metal {
     background-image: url('../img/Metal.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.selected_Paper {
+.select_Paper {
     background-image: url('../img/Paper.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.selected_Plastic {
+.select_Plastic {
     background-image: url('../img/Plastic.jpeg');
     background-position: center;
     background-repeat: no-repeat;
