@@ -17,7 +17,8 @@ footer ul {
 
 footer ul li a {
     text-decoration: none;
-    margin: 0 10px 0 0;
+    margin: 0 50px 0 0;
+    color: black;
 }
 
 footer ul li:last-child a {
@@ -28,6 +29,15 @@ footer h1 {
     text-align: center;
     font-size: 14px;
     margin: 0;
+}
+
+.nav__link:hover {
+    color: rgb(14, 116, 129);
+    cursor: pointer;
+}
+
+.nav__link.active {
+    color: green
 }
 
 .navigation {
