@@ -52,7 +52,7 @@ class ContactForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className='contact_form' onSubmit={this.handleSubmit}>
                 <h1>Contact Us</h1>
 
                 <label htmlFor="user-message">We would love to hear from you!</label>
